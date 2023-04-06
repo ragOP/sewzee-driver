@@ -2,25 +2,26 @@ import * as React from 'react';
 import { Button, View,Text,TouchableOpacity,StyleSheet  } from 'react-native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native';
+import Details from './components/Details';
 
 import CardSilder from 'react-native-cards-slider';
 
 function HomeScreen({ navigation }: { navigation: any }) {
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      {/* <AdvancedCardCarousel/> */}
+     
       
         {/* <Text style={{fontSize: 30, color: '#000', marginTop:40, marginLeft:20, fontWeight:'bold'}}>
           raghib
         </Text> */}
         <CardSilder style={{marginTop: 30}}>
           <View style={[styles.card, styles.elevation]}>
-            <Text style={{color: 'white', fontSize: 24, fontWeight: 'bold'}}>
+            <Text style={{color: 'black', fontSize: 24, fontWeight: 'bold'}}>
               sA
             </Text>
           </View>
           <View style={[styles.card, styles.elevation]}>
-            <Text style={{color: 'white', fontSize: 24, fontWeight: 'bold'}}>
+            <Text style={{color: 'black', fontSize: 24, fontWeight: 'bold'}}>
               A2
             </Text>
           </View>
@@ -35,7 +36,7 @@ function HomeScreen({ navigation }: { navigation: any }) {
             </Text>
           </View>
           <TouchableOpacity  
-           onPress={() => navigation.navigate('Notifications')}
+           onPress={() => navigation.navigate('Details')}
           style={{height: 170, justifyContent:'center', alignItems:'center', backgroundColor: 'lightpink'}}>
             <Text style={{color: 'white', fontSize: 24, fontWeight: 'bold'}}>
               D
@@ -74,6 +75,7 @@ export default function App() {
       initialRouteName="Home">
         <Drawer.Screen name="Home" component={HomeScreen} />
         <Drawer.Screen name="Notifications" component={NotificationsScreen} />
+        <Drawer.Screen name="Details" component={Details} />
       </Drawer.Navigator>
     </NavigationContainer>
   );
@@ -88,7 +90,7 @@ const styles = StyleSheet.create({
     height: 170,
     justifyContent:'center',
      alignItems:'center',
-    backgroundColor: 'teal',
+    backgroundColor: 'white',
     borderRadius: 8,
     paddingVertical: 45,
     paddingHorizontal: 25,
