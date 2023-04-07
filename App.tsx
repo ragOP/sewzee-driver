@@ -29,13 +29,11 @@ export default function App({ navigation }: { navigation: any }) {
           },
 
         }}
-
-
-
         initialRouteName="Home">
-        <Drawer.Screen name="Home" component={HomeScreen}
-
-          options={{
+        <Drawer.Screen
+          name="Home"
+          component={HomeScreen}
+          options={({ navigation }) => ({
             headerRight: () => (
               <DrawerItem
                 label="Toggle Online"
@@ -45,7 +43,12 @@ export default function App({ navigation }: { navigation: any }) {
                 onPress={() => { }}
               />
             ),
-          }} />
+            screenProps: { online: 'online' },
+          })}
+        />
+
+
+
         <Drawer.Screen name="Summary" component={Summary} />
         <Drawer.Screen name="Details" component={Details} />
         <Drawer.Screen name="Payment" component={Payment}
