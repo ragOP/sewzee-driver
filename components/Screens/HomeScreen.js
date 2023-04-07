@@ -2,17 +2,21 @@ import React, { useState } from 'react';
 import { Button, View, Text, TouchableOpacity, StyleSheet, Modal } from 'react-native';
 import CardSilder from 'react-native-cards-slider';
 import Model from '../Model';
+import FastImage from 'react-native-fast-image';
 
-export default function HomeScreen({ navigation,online }) {
-    console.log('jome',online);
-   
-     
+export default function HomeScreen({ navigation, online }) {
+    console.log('hey', online);
+
+
+
+
+
 
 
     return (
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Model/>
-            <CardSilder style={{ marginTop: 30 }}>
+
+            {/* <CardSilder style={{ marginTop: 5 }}>
                 <View style={[styles.card, styles.elevation]}>
                     <Text style={{ color: 'black', fontSize: 24, fontWeight: 'bold' }}>
                         raghib
@@ -40,7 +44,13 @@ export default function HomeScreen({ navigation,online }) {
                         D
                     </Text>
                 </TouchableOpacity >
-            </CardSilder>
+            </CardSilder> */}
+            <FastImage
+                                // resizeMode={FastImage.resizeMode.contain}
+                                style={{ position: 'absolute', top: 0, bottom: 0, left: 0, right: 0 }}
+                                source={require('../../images/offline.gif')}
+                            />
+            <Model />
         </View>
     );
 }
@@ -50,8 +60,8 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-      },
-      button: {
+    },
+    button: {
         backgroundColor: 'lightblue',
         padding: 12,
         margin: 16,
@@ -59,20 +69,20 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         borderRadius: 4,
         borderColor: 'rgba(0, 0, 0, 0.1)',
-      },
-      modalContent: {
+    },
+    modalContent: {
         backgroundColor: 'white',
         padding: 22,
         justifyContent: 'center',
         alignItems: 'center',
         borderRadius: 4,
         borderColor: 'rgba(0, 0, 0, 0.1)',
-      },
-      bottomModal: {
+    },
+    bottomModal: {
         justifyContent: 'flex-end',
         margin: 0,
-      },
-   
+    },
+
     content: {
         fontSize: 16,
         marginBottom: 20,
@@ -86,7 +96,7 @@ const styles = StyleSheet.create({
         height: 170,
         justifyContent: 'center',
         alignItems: 'center',
- 
+
         backgroundColor: 'white',
         borderRadius: 8,
         paddingVertical: 45,
