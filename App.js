@@ -7,7 +7,9 @@ import Payment from './components/Payment';
 import HomeScreen from './components/Screens/HomeScreen';
 import Summary from './components/Screens/Summary';
 import { Switch } from 'react-native';
-// import DrawerContent from './components/DrawerContent'
+import CustomDrawer from './components/CustomDrawer';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+
 
 const Drawer = createDrawerNavigator();
 // const CustomDefaultTheme = {
@@ -43,27 +45,35 @@ export default function App({ navigation }) {
 
   return (
     <NavigationContainer >
-      <Drawer.Navigator drawerContent={props => <DrawerContent {...props} />}
-       screenOptions={{
-        drawerStyle: {
-          backgroundColor: '#7d5ffe',
-          width: 240,
-        },
-      }}
-      initialRouteName="Home"
+       <Drawer.Navigator
+      drawerContent={props => <CustomDrawer {...props} />}
+      screenOptions={{
+        headerShown: false,
+        drawerActiveBackgroundColor: '#aa18ea',
+        drawerActiveTintColor: '#fff',
+        drawerInactiveTintColor: '#333',
+        // drawerLabelStyle: {
+        //   marginLeft: -25,
+        //   fontFamily: 'Roboto-Medium',
+        //   fontSize: 15,
+        // },
+      }}>
 
-    >
-
-
-      <Drawer.Screen
-        name="Home" component={HomeScreen}
+        <Drawer.Screen
+          name="Home" component={HomeScreen}
+          options={{
+            drawerIcon: ({color}) => (
+              <Ionicons name="home-outline" size={22} color={color} />
+            ),
+          }}
+        
         
 
       />
-      <Drawer.Screen name="Summary" component={Summary} />
-      <Drawer.Screen name="Details" component={Details} />
-      <Drawer.Screen name="Payment" component={Payment} />
-    </Drawer.Navigator>
+        <Drawer.Screen name="Summary" component={Summary} />
+        <Drawer.Screen name="Details" component={Details} />
+        <Drawer.Screen name="Payment" component={Payment} />
+      </Drawer.Navigator>
     </NavigationContainer >
   );
 }

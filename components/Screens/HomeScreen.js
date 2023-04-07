@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { Button, View, Text, TouchableOpacity, StyleSheet, Modal } from 'react-native';
+import { Button, View, Text, TouchableOpacity, StyleSheet, Modal, TextInput, SafeAreaView, ScrollView, ImageBackground } from 'react-native';
 import CardSilder from 'react-native-cards-slider';
 import Model from '../Model';
 import FastImage from 'react-native-fast-image';
+import Feather from 'react-native-vector-icons/Feather';
 
 export default function HomeScreen({ navigation, online }) {
-    console.log('hey', online);
+    const [status, setStatus] = useState('online')
 
 
 
@@ -14,47 +15,77 @@ export default function HomeScreen({ navigation, online }) {
 
 
     return (
-        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+        <>
 
-            {/* <CardSilder style={{ marginTop: 5 }}>
-                <View style={[styles.card, styles.elevation]}>
-                    <Text style={{ color: 'black', fontSize: 24, fontWeight: 'bold' }}>
-                        raghib
-                    </Text>
-                </View>
-                <View style={[styles.card, styles.elevation]}>
-                    <Text style={{ color: 'black', fontSize: 24, fontWeight: 'bold' }}>
-                        A2
-                    </Text>
-                </View>
-                <View style={{ height: 170, justifyContent: 'center', alignItems: 'center', backgroundColor: 'white' }}>
-                    <Text style={{ color: 'black', fontSize: 24, fontWeight: 'bold' }}>
-                        B
-                    </Text>
-                </View>
-                <View style={{ height: 170, justifyContent: 'center', alignItems: 'center', backgroundColor: 'teal' }}>
-                    <Text style={{ color: 'white', fontSize: 24, fontWeight: 'bold' }}>
-                        C
-                    </Text>
-                </View>
-                <TouchableOpacity
-                    onPress={() => navigation.navigate('Details')}
-                    style={{ height: 170, justifyContent: 'center', alignItems: 'center', backgroundColor: 'lightpink' }}>
-                    <Text style={{ color: 'white', fontSize: 24, fontWeight: 'bold' }}>
-                        D
-                    </Text>
-                </TouchableOpacity >
-            </CardSilder> */}
-            <FastImage
-                                // resizeMode={FastImage.resizeMode.contain}
-                                style={{ position: 'absolute', top: 0, bottom: 0, left: 0, right: 0 }}
-                                source={require('../../images/offline.gif')}
+            <View style={{ backgroundColor: '#8200d6', padding: 20 }}>
+                <ScrollView >
+                    <View
+                        style={{
+                            flexDirection: 'row',
+                            justifyContent: 'space-between',
+                            // marginBottom: 20,
+                        }}>
+                        <Text style={{ fontSize: 18, fontFamily: 'Roboto-Medium' }}>
+                            Hello Raghib Najmi
+                        </Text>
+                        <TouchableOpacity onPress={() => navigation.openDrawer()}>
+                            <ImageBackground
+                                source={require('../../images/user-profile.jpg')}
+                                style={{ width: 35, height: 35 }}
+                                imageStyle={{ borderRadius: 25 }}
                             />
-            <Model />
-        </View>
+                        </TouchableOpacity>
+                    </View>
+
+
+
+
+
+
+                </ScrollView>
+
+            </View>
+            <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+
+                {status == 'online' && <CardSilder style={{ marginTop: 5 }}>
+                    <View style={[styles.card, styles.elevation]}>
+                        <Text style={{ color: 'black', fontSize: 24, fontWeight: 'bold' }}>
+                            raghib
+                        </Text>
+                    </View>
+                    <View style={[styles.card, styles.elevation]}>
+                        <Text style={{ color: 'black', fontSize: 24, fontWeight: 'bold' }}>
+                            A2
+                        </Text>
+                    </View>
+                    <View style={{ height: 170, justifyContent: 'center', alignItems: 'center', backgroundColor: 'white' }}>
+                        <Text style={{ color: 'black', fontSize: 24, fontWeight: 'bold' }}>
+                            B
+                        </Text>
+                    </View>
+                    <View style={{ height: 170, justifyContent: 'center', alignItems: 'center', backgroundColor: 'teal' }}>
+                        <Text style={{ color: 'white', fontSize: 24, fontWeight: 'bold' }}>
+                            C
+                        </Text>
+                    </View>
+                    <TouchableOpacity
+                        onPress={() => navigation.navigate('Details')}
+                        style={{ height: 170, justifyContent: 'center', alignItems: 'center', backgroundColor: 'lightpink' }}>
+                        <Text style={{ color: 'white', fontSize: 24, fontWeight: 'bold' }}>
+                            D
+                        </Text>
+                    </TouchableOpacity >
+                </CardSilder>}
+                {status == 'offline' && <FastImage
+                    // resizeMode={FastImage.resizeMode.contain}
+                    style={{ position: 'absolute', top: 0, bottom: 0, left: 0, right: 0 }}
+                    source={require('../../images/offline.gif')}
+                />}
+                {status == 'offline' && <Model />}
+            </View>
+        </>
     );
 }
-
 const styles = StyleSheet.create({
     container: {
         flex: 1,
