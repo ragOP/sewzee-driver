@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, View, Text, TouchableOpacity, StyleSheet, Modal, TextInput, SafeAreaView, ScrollView, ImageBackground } from 'react-native';
+import { Button, View, Text, TouchableOpacity, StyleSheet, Modal, Image, TextInput, SafeAreaView, ScrollView, ImageBackground } from 'react-native';
 import CardSilder from 'react-native-cards-slider';
 import Model from '../Model';
 import FastImage from 'react-native-fast-image';
@@ -10,7 +10,7 @@ export default function HomeScreen({ navigation, online }) {
     const [status, setStatus] = useState('offline')
     const [visible, setVisible] = useState(false);
     const toggleBottomNavigationView = () => {
-        //Toggling the visibility state of the bottom sheet
+
         setVisible(!visible);
         setTimeout(() => {
             setStatus('online');
@@ -19,7 +19,7 @@ export default function HomeScreen({ navigation, online }) {
 
 
     const items = [
-        { name: 'John Doe', type: 'Customer', age: 28, address: '123 Main St', price: 50 },
+        { name: 'John Dsoe', type: 'Customer', age: 28, address: '123 Main St', price: 50 },
         { name: 'Jane Smith', type: 'Vendor', age: 35, address: '456 Elm St', price: 75 },
         { name: 'Bob Johnson', type: 'Customer', age: 42, address: '789 Oak St', price: 100 },
         { name: 'Alice Lee', type: 'Vendor', age: 29, address: '321 Maple St', price: 125 },
@@ -29,6 +29,12 @@ export default function HomeScreen({ navigation, online }) {
         <View key={index} style={[styles.card, styles.elevation]}>
             <Text style={{ color: 'black', fontSize: 24, fontWeight: 'bold' }}>
                 {item.name}
+                <View >
+                    <Image
+                        source={require('../../images/bike.gif')}
+                        style={{ marginLeft: 80, width: 48, height: 48 }}
+                    />
+                </View>
             </Text>
             <Text style={{ color: 'gray', fontSize: 16, marginTop: 8 }}>
                 {item.type} - Age {item.age}
