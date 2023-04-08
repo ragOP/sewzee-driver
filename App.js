@@ -67,7 +67,7 @@ export default function App({ navigation }) {
             ),
           }}
         
-        
+        // s
 
       />
         <Drawer.Screen name="Summary" component={Summary} />

@@ -66,7 +66,7 @@ const Details = ({navigation}) => {
     </View>
     <View style={{ marginTop: 10, marginLeft: 30, padding: 30, height: 370, width: 300, backgroundColor: 'white' }}>
             <Text style={{ color: 'black', fontSize: 18, fontWeight: 'bold' }}>
-                {`Order #6969`
+                {`Order #69ss69`
 
                 }
             </Text>
