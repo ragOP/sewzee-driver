@@ -9,7 +9,7 @@ import Summary from './components/Screens/Summary';
 import { Switch } from 'react-native';
 import CustomDrawer from './components/CustomDrawer';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-
+import Notification from './components/Screens/Notification';
 
 const Drawer = createDrawerNavigator();
 // const CustomDefaultTheme = {
@@ -73,6 +73,7 @@ export default function App({ navigation }) {
         <Drawer.Screen name="Summary" component={Summary} />
         <Drawer.Screen name="Details" component={Details} />
         <Drawer.Screen name="Payment" component={Payment} />
+        <Drawer.Screen name="Notification" component={Notification} />
       </Drawer.Navigator>
     </NavigationContainer >
   );

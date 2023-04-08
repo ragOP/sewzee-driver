@@ -9,6 +9,9 @@ import { BottomSheet } from 'react-native-btr';
 export default function HomeScreen({ navigation, online }) {
     const [status, setStatus] = useState('offline')
     const [visible, setVisible] = useState(false);
+    const handle=()=>{
+        navigation.navigate('Notification')
+    }
     const toggleBottomNavigationView = () => {
 
         setVisible(!visible);
@@ -43,7 +46,7 @@ export default function HomeScreen({ navigation, online }) {
                 {item.address}
             </Text>
             <Text style={{ color: 'green', fontSize: 24, fontWeight: 'bold', marginTop: 16 }}>
-                Price: ${item.price}
+                Price: {item.price} ₹
             </Text>
         </View>
     ));
@@ -69,6 +72,13 @@ export default function HomeScreen({ navigation, online }) {
                             <ImageBackground
                                 source={require('../../images/user-profile.jpg')}
                                 style={{ width: 35, height: 35 }}
+                                imageStyle={{ borderRadius: 25 }}
+                            />
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={handle}>
+                            <FastImage
+                                source={require('../../images/notis.gif')}
+                                style={{ width: 45, height: 35 }}
                                 imageStyle={{ borderRadius: 25 }}
                             />
                         </TouchableOpacity>

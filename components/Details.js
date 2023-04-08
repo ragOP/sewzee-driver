@@ -1,11 +1,12 @@
-import { StyleSheet, Text, View, Button, Switch, Image } from 'react-native'
+import { StyleSheet, Text, View, Button, Switch, Image,ScrollView,ImageBackground } from 'react-native'
 import React, { useState } from 'react'
 import { Divider } from '@rneui/themed';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import SwipeButton from 'rn-swipe-button';
+import FastImage from 'react-native-fast-image';
 
 
-const Details = () => {
+const Details = ({navigation}) => {
 
     const defaultStatusMessage = 'swipe status appears here';
     const [swipeStatusMessage, setSwipeStatusMessage] = useState(
@@ -23,9 +24,47 @@ const Details = () => {
     const toggleSwitch = () => {
         setChecked(!checked);
     };
+    const handle = ({ navigation }) => {
+        navigation.navigate('Notification')
+    }
 
     return (
-        <View style={{ marginTop: 10, marginLeft: 30, padding: 30, height: 370, width: 300, backgroundColor: 'white' }}>
+        <>
+        <View style={{ backgroundColor: '#8200d6', padding: 20 }}>
+        <ScrollView >
+            <View
+                style={{
+                    flexDirection: 'row',
+                    justifyContent: 'space-between',
+                    // marginBottom: 20,
+                }}>
+
+                <TouchableOpacity onPress={() => navigation.goBack()}>
+                    <ImageBackground
+                        source={require('../images/user-profile.jpg')}
+                        style={{ width: 35, height: 35 }}
+                        imageStyle={{ borderRadius: 25 }}
+                    />
+                </TouchableOpacity>
+                <TouchableOpacity onPress={handle}>
+                    <FastImage
+                        source={require('../images/notis.gif')}
+                        style={{ width: 45, height: 35 }}
+                        imageStyle={{ borderRadius: 25 }}
+                    />
+                </TouchableOpacity>
+            </View>
+            
+
+
+
+
+
+
+        </ScrollView>
+
+    </View>
+    <View style={{ marginTop: 10, marginLeft: 30, padding: 30, height: 370, width: 300, backgroundColor: 'white' }}>
             <Text style={{ color: 'black', fontSize: 18, fontWeight: 'bold' }}>
                 {`Order #6969`
 
@@ -97,7 +136,7 @@ const Details = () => {
             </TouchableOpacity>
             <Divider inset={true} insetType="right" />
         </View>
-
+</>
     )
 }
 

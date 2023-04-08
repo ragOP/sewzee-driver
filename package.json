@@ -15,6 +15,7 @@
     "@react-navigation/native-stack": "^6.9.12",
     "@rneui/base": "^0.0.0-edge.2",
     "@rneui/themed": "^0.0.0-edge.2",
+    "moment": "^2.29.4",
     "react": "18.2.0",
     "react-native": "0.71.6",
     "react-native-btr": "^2.2.0",
